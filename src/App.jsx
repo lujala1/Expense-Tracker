@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+import Login from "./components/Login/Login"
+import Signup from "./components/Signup/Signup"
 import Header from "./components/Header/Header"
 import Sidebar from "./components/Sidebar/Sidebar"
 import BalanceCards from "./components/BalanceCards/BalanceCards"
@@ -12,8 +14,12 @@ import Footer from "./components/Footer/Footer"
 
 
 function App() {
+ 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [showSignup, setShowSignup] = useState(false)
 
-  // Store all transactions
+
+  // timro existing code yaha bata continue huncha
   const [transactions, setTransactions] = useState(() => {
 
     const savedTransactions =
@@ -142,12 +148,28 @@ function App() {
 
   // Monthly budget
   const budget = 25000
+    if (!isLoggedIn) {
 
+   if (showSignup) {
+    return (
+      <Signup
+        setShowSignup={setShowSignup}
+        setIsLoggedIn={setIsLoggedIn}
+      />
+    )
+  }
 
+  return (
+    <Login
+      setIsLoggedIn={setIsLoggedIn}
+      setShowSignup={setShowSignup}
+    />
+  )
+}
   return (
     <>
 
-      <Header />
+      <Header setIsLoggedIn={setIsLoggedIn} />
 
 
       <div className="flex">
