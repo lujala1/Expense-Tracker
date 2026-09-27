@@ -19,7 +19,6 @@ function App() {
   const [showSignup, setShowSignup] = useState(false)
 
 
-  // timro existing code yaha bata continue huncha
   const [transactions, setTransactions] = useState(() => {
 
     const savedTransactions =
@@ -67,7 +66,6 @@ function App() {
   })
 
 
-  // Save transactions in localStorage
   useEffect(() => {
 
     localStorage.setItem(
@@ -78,7 +76,6 @@ function App() {
   }, [transactions])
 
 
-  // Add new transaction
   function addTransaction(transaction) {
 
     setTransactions([
@@ -88,8 +85,6 @@ function App() {
 
   }
 
-
-  // Delete transaction
   function deleteTransaction(id) {
 
     const newTransactions =
@@ -103,7 +98,6 @@ function App() {
   }
 
 
-  // Calculate total income
   let totalIncome = 0
 
   transactions.forEach((transaction) => {
@@ -117,8 +111,6 @@ function App() {
 
   })
 
-
-  // Calculate total expenses
   let totalExpenses = 0
 
   transactions.forEach((transaction) => {
@@ -133,20 +125,15 @@ function App() {
   })
 
 
-  // Calculate balance
   const balance =
     totalIncome - totalExpenses
 
-
-  // Get only expense transactions
   const expenses =
     transactions.filter(
       (transaction) =>
         transaction.type === "Expense"
     )
 
-
-  // Monthly budget
   const budget = 25000
     if (!isLoggedIn) {
 

@@ -9,21 +9,16 @@ function Signup({ setShowSignup, setIsLoggedIn }) {
 
   function handleSignup() {
 
-    // Check empty fields
     if (username === "" || password === "" || confirmPassword === "") {
       alert("Please fill in all fields.")
       return
     }
 
-
-    // Check password
     if (password !== confirmPassword) {
       alert("Passwords do not match.")
       return
     }
 
-
-    // If everything is correct
     setIsLoggedIn(true)
   }
 

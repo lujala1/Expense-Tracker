@@ -2,20 +2,14 @@ import { useState } from "react"
 
 function Header({ setIsLoggedIn }) {
 
-  // Shows or hides the profile dropdown
   const [showProfile, setShowProfile] = useState(false)
-
-  // Shows or hides the logout popup
   const [showLogout, setShowLogout] = useState(false)
-
-  // Get current month
   const currentMonth = new Date().toLocaleString("en-US", {
     month: "long",
     year: "numeric"
   })
 
 
-  // Logout function
   function handleLogout() {
     setIsLoggedIn(false)
     setShowLogout(false)
